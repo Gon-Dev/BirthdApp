@@ -1,19 +1,20 @@
 import React, {useState} from "react";
-import Birthday from './Birthday.jsx'
-const BirthdayList = () => {
-  const [birthdayData, setbirthdayData] = React.useState({nombre:"", fecha:""});
-  console.log(birthdayData);
+
+const BirthdayForm = ({updateBirthdaysList}) => {
+
+  const [birthdayFormData, setBirthdayFormData] = React.useState({nombre:"", fecha:""});
   const handleChange = (event) => {
-    setbirthdayData( prevbirthdayData => {
+    setBirthdayFormData( prevBirthdayFormData => {
       return {
-        ...prevbirthdayData,
+        ...prevBirthdayFormData,
         [event.target.name]: event.target.value
       }
     })
   }
   const handleSubmit = (event) => {
+    //localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData))
     event.preventDefault();
-    console.log("form submitteado");
+    updateBirthdaysList(birthdayFormData);    
   }
   return (
     <form className="birthday-form">
@@ -22,13 +23,13 @@ const BirthdayList = () => {
         placeholder="Nombre"
         onChange={handleChange}
         name="nombre"
-        value={birthdayData.nombre}
+        value={birthdayFormData.nombre}
       />
       <input 
         type="date"
         name="fecha"
         onChange={handleChange}
-        value={birthdayData.fecha}
+        value={birthdayFormData.fecha}
       />
       <input 
         type="submit"
@@ -37,4 +38,4 @@ const BirthdayList = () => {
   )
 }
 
-export default BirthdayList;
+export default BirthdayForm;
