@@ -4,6 +4,7 @@ const Birthday = (props) => {
 
   const today = new Date();
   const friendBirthday = new Date(props.fecha);
+  console.log(friendBirthday);
   const actualYear = getYear(today);
   const updatedBirthday = setYear(friendBirthday,actualYear);
   const remainingDays = intlFormatDistance(updatedBirthday,today,{unit:"day"}).split(" ")[1];
