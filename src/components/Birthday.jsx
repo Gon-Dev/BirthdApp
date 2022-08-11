@@ -1,17 +1,19 @@
+import React from 'react';
+import {intlFormatDistance,setYear,getYear} from 'date-fns'
 const Birthday = (props) => {
-    // cumple ya pasó este año?
-    //  SI (true) => calcular cuanto falta para el año que viene
-    //  NO (false) => calcular cuanto falta para este año
-    const today = new Date();
-    const birthdayDate = new Date(props.fecha +'T00:00:00');
-    console.log(birthdayDate.toLocaleDateString());
-    console.log(`la fecha ingresada ${birthdayDate} // la fecha actual ${today}`);
 
+  const today = new Date();
+  const friendBirthday = new Date(props.fecha);
+  const actualYear = getYear(today);
+  const updatedBirthday = setYear(friendBirthday,actualYear);
+  const remainingDays = intlFormatDistance(updatedBirthday,today,{unit:"day"}).split(" ")[1];
+  
+  
+  
   return (
 
     <li>
-      <h2>Amigx {props.nombre}</h2>
-      <h3>Cumple el {props.fecha}</h3>
+      <h2>Amigx {props.nombre} cumple en {remainingDays} días </h2>
     </li>
     
   )
