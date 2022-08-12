@@ -1,20 +1,23 @@
 import React from 'react';
-import {intlFormatDistance,setYear,getYear} from 'date-fns'
-const Birthday = (props) => {
+import {formatDistanceStrict,isPast,setYear,getYear,isToday} from 'date-fns'
 
+const Birthday = ( {fecha,nombre} ) => {
   const today = new Date();
-  const friendBirthday = new Date(props.fecha);
-  console.log(friendBirthday);
+  console.log(today);
   const actualYear = getYear(today);
-  const updatedBirthday = setYear(friendBirthday,actualYear);
-  const remainingDays = intlFormatDistance(updatedBirthday,today,{unit:"day"}).split(" ")[1];
-  
-  
+  const friendBirthday = new Date(`${fecha}T00:00:00`);
+  const birthdayThisYear = setYear(friendBirthday,actualYear);
+  const updatedbirthdayDate = isPast(birthdayThisYear) ? setYear(birthdayThisYear,actualYear + 1) : birthdayThisYear; // ESTO NO FUNCIONA, VERIFICAR
+  console.log(updatedbirthdayDate);
+  const remainingDays = formatDistanceStrict(today,updatedbirthdayDate,{unit:"day"}).split(" ")[0];
+  const daysToDisplay = parseInt(remainingDays) === 0 ? "hoy!" : `en ${remainingDays} días`;
+
+  // SI LA FECHA CAE HOY SALTA AL AÑO QUE VIENE, SOLUCIONAR LINEA 10 !!!!!!!!!!!!!!
   
   return (
 
     <li>
-      <h2>Amigx {props.nombre} cumple en {remainingDays} días </h2>
+      <h2>Amigx {nombre} cumple {daysToDisplay} </h2>
     </li>
     
   )
