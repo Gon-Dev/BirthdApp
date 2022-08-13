@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 
 const BirthdayForm = ({updateBirthdaysList}) => {
-
   const [birthdayFormData, setBirthdayFormData] = React.useState({nombre:"", fecha:""});
-  const handleChange = (event) => {
+
+  function handleChange(event) {
     setBirthdayFormData( prevBirthdayFormData => {
       return {
         ...prevBirthdayFormData,
@@ -11,11 +11,11 @@ const BirthdayForm = ({updateBirthdaysList}) => {
       }
     })
   }
-  const handleSubmit = (event) => {
-    //localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData))
+  function handleSubmit(event) {
     event.preventDefault();
     updateBirthdaysList(birthdayFormData);    
   }
+  
   return (
     <form className="birthday-form">
       <input 
