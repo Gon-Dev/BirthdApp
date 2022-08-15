@@ -12,8 +12,13 @@ const BirthdayForm = ({updateBirthdaysList}) => {
     })
   }
   function handleSubmit(event) {
-    event.preventDefault();
-    updateBirthdaysList(birthdayFormData);    
+    if(birthdayFormData.nombre && birthdayFormData.fecha){
+      event.preventDefault();
+      updateBirthdaysList(birthdayFormData);
+      localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData));
+    } else {
+      console.error(error);
+    }
   }
   
   return (

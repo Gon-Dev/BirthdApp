@@ -4,21 +4,18 @@ import BirthdayForm from './components/BirthdayForm.jsx'
 import BirthdayList from './components/BirthdayList.jsx'
 
 function App() {
-
-  const [birthdaysList,setBirthdaysList] = React.useState([]);
-
-  const updateBirthdaysList = (birthdays) => {
-    setBirthdaysList([...birthdaysList,birthdays])
-  }
-  
-  
+  const storage = {...localStorage};
+  const keysInStorage = Object.keys(storage);
+  const birthdaysInStorage = keysInStorage.map( key => JSON.parse(localStorage.getItem(key)));
+  const [birthdaysList,setBirthdaysList] = React.useState(birthdaysInStorage);
+  const updateBirthdaysList = birthdays => setBirthdaysList([...birthdaysList,birthdays])
   return (
 
     <div className="App">
-      <BirthdayForm 
+      <BirthdayForm
         updateBirthdaysList={updateBirthdaysList}
       />
-      <BirthdayList 
+      <BirthdayList
         birthdayList={birthdaysList}
       />
     </div>
