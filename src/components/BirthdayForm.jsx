@@ -2,7 +2,7 @@ import React from "react";
 
 const BirthdayForm = ({updateBirthdaysList}) => {
   const [birthdayFormData, setBirthdayFormData] = React.useState({nombre:"", fecha:""});
-
+  
   function handleChange(event) {
     setBirthdayFormData( prevBirthdayFormData => {
       return {
@@ -15,9 +15,7 @@ const BirthdayForm = ({updateBirthdaysList}) => {
     if(birthdayFormData.nombre && birthdayFormData.fecha){
       event.preventDefault();
       updateBirthdaysList(birthdayFormData);
-      localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData));
-    } else {
-      console.error(error);
+      localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData))
     }
   }
   

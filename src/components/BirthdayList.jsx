@@ -1,7 +1,12 @@
 import Birthday from './Birthday.jsx';
 import React from 'react';
-const BirthdayList = ({birthdayList}) => {
-  const birthdayToShow = birthdayList.map ( birthday => {
+const BirthdayList = ( {birthdayList} ) => {
+  const storageKeys = Object.keys({...localStorage});
+  const birthdaysInStorage = storageKeys.map( key => {
+    return JSON.parse(localStorage.getItem(key))
+  });
+  const allBirthdays = [...birthdayList,...birthdaysInStorage]
+  const birthdayToShow = allBirthdays.map ( birthday => {
     return (
       <Birthday 
         nombre={birthday.nombre}
@@ -10,13 +15,10 @@ const BirthdayList = ({birthdayList}) => {
       />
     )
   })
-
   return (
-
     <ul>
       {birthdayToShow}
     </ul>
-    
   )
 }
 
