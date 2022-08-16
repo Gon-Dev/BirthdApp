@@ -19,7 +19,7 @@ function App() {
       setBirthdayList([...birthdayList,birthdayFormData]);
       localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData))
     } else {
-      console.log("ingresaste mal los datos maquina, revisa");
+      alert("ingresaste mal los datos maquina, revisa");
     }
   }
 
@@ -46,7 +46,7 @@ function App() {
       </form>
       <BirthdayList
         birthdayList={birthdayList}
-        
+        setBirthdayList={setBirthdayList}
       />
     </div>
   )

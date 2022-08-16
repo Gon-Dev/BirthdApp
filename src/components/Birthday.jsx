@@ -1,7 +1,7 @@
 import React from 'react';
 import {formatDistanceStrict,isPast,setYear,getYear,isToday,isTomorrow} from 'date-fns'
 
-const Birthday = ( {fecha,nombre} ) => {
+const Birthday = ( {nombre,fecha,setBirthdayList} ) => {
   const today = new Date();
   const actualYear = getYear(today); // año actual
   const birthdayInputDate = new Date(`${fecha}T00:00:00`); //dato ingresado por user, incluye año de nacimiento
@@ -13,7 +13,8 @@ const Birthday = ( {fecha,nombre} ) => {
   }
   const daysToDisplay = isToday(birthdayThisYear) ? "hoy!" : showRemainingDays(nextBirthday);
   function deleteBirthday(event) {
-    const clickedFriend = event.target.previousSibling.wholeText.split(" ")[1];
+    const clickedFriendName = event.target.previousSibling.wholeText.split(" ")[1];
+    setBirthdayList( prevList => prevList.filter( friend => friend.nombre !== clickedFriendName))
   }
   return (
     <li>
