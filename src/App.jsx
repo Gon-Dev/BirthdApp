@@ -3,13 +3,8 @@ import './App.css'
 import BirthdayList from './components/BirthdayList.jsx'
 
 function App() {
-  const [birthdaysList,setBirthdaysList] = React.useState([]);
+  const [birthdayList,setBirthdayList] = React.useState([]);
   const [birthdayFormData, setBirthdayFormData] = React.useState({nombre:"", fecha:""});
-
-  const storageKeys = Object.keys({...localStorage});
-  const birthdaysInStorage = storageKeys.map( key => {
-    return JSON.parse(localStorage.getItem(key))
-  });
   function handleChange(event) {
     setBirthdayFormData( prevBirthdayFormData => {
       return {
@@ -20,9 +15,8 @@ function App() {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    const isAlreadyFriend = birthdaysInStorage.some(birthday => birthday.nombre === birthdayFormData.nombre);
-    if(birthdayFormData.nombre && birthdayFormData.fecha && !isAlreadyFriend){
-      setBirthdaysList([...birthdaysList,birthdayFormData]);
+    if(birthdayFormData.nombre && birthdayFormData.fecha){
+      setBirthdayList([...birthdayList,birthdayFormData]);
       localStorage.setItem(birthdayFormData.nombre,JSON.stringify(birthdayFormData))
     } else {
       console.log("ingresaste mal los datos maquina, revisa");
@@ -51,7 +45,8 @@ function App() {
         />
       </form>
       <BirthdayList
-        birthdayList={birthdaysList}
+        birthdayList={birthdayList}
+        
       />
     </div>
   )

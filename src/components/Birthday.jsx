@@ -14,7 +14,6 @@ const Birthday = ( {fecha,nombre} ) => {
   const daysToDisplay = isToday(birthdayThisYear) ? "hoy!" : showRemainingDays(nextBirthday);
   function deleteBirthday(event) {
     const clickedFriend = event.target.previousSibling.wholeText.split(" ")[1];
-    
   }
   return (
     <li>
