@@ -1,5 +1,6 @@
 import Birthday from './Birthday.jsx';
 import React from 'react';
+import '../styles/Birthdaylist.css'
 const BirthdayList = ( {birthdayList,setBirthdayList} ) => {
   const birthdayToShow = birthdayList.map ( birthday => {
     return (
@@ -12,7 +13,7 @@ const BirthdayList = ( {birthdayList,setBirthdayList} ) => {
     )
   })
   return (
-    <ul>
+    <ul className="birthday-list">
       {birthdayToShow}
     </ul>
   )

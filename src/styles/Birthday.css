@@ -1,0 +1,36 @@
+.birthday-item {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 22px;
+}
+.birthday-button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00C9A7;
+  border: none;
+  color: #FBEAFF;
+}
+.birthday-button:active {
+  background-color: #845EC2;
+  outline: none;
+  transform: translate(2px,2px);
+}
+@media (max-width: 425px) {
+  .birthday-item {
+    width: 70%;
+    font-size: 18px;
+  }
+  .birthday-button {
+    width: 4rem;
+    height: 2.5rem;
+    font-size: 25px;
+  }
+}

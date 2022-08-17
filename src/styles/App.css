@@ -1,0 +1,74 @@
+* {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Silkscreen', cursive;
+  color: #2d2d2d;
+}
+.App {
+  background-color: #FBEAFF;
+  height: 100vh;
+  overflow: scroll;
+}
+.App, .birthday-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+.birthday-form {
+  width: 40%;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 18px;
+}
+.app-title {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 1rem;
+}
+.app-subtitle {
+  text-align: center;
+  margin: -1rem auto 2rem auto;
+}
+input { border: #845EC2 1px solid; }
+input:focus {
+  outline: #845EC2 3px solid;
+}
+input {
+  height: 2rem;
+  padding: 0 0.5rem;
+  font-size: 15px;
+}
+.form-submit {
+  background-color: #00C9A7;
+  height: 2.5rem;
+  border: none;
+  font-size: 18px;
+  color: #FBEAFF;
+  margin-top: 1rem;
+}
+.form-submit:active {
+  background-color: #845EC2;
+  outline: none;
+  transform: translate(2px,2px);
+}
+.form-submit:hover {
+  cursor: pointer;
+}
+@media (max-width: 425px) {
+  .app-title{
+    width: 80%;
+  }
+  .app-subtitle {
+    width: 80%;
+    font-size: 18px;
+  }
+  .birthday-form {
+    width: 70%;
+  }
+}

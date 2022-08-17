@@ -5,8 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
+
 }
 .navbar-wrapper {
   display: flex;
@@ -16,6 +15,10 @@
 }
 .navbar img,a {
   width: 2.5rem;
+}
+.navbar img,a:active {
+  width: 2.5rem;
+  transform: translate(2px,2px);
 }
 .navbar-title {
   color: #FBEAFF;

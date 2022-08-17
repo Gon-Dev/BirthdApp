@@ -1,0 +1,9 @@
+.birthday-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 2rem auto;
+  gap: 0.5rem;
+  padding: 0;
+}
