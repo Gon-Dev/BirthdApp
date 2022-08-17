@@ -1,6 +1,12 @@
 * {
+  width: 100%;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Silkscreen', cursive;
+}
+.App {
+  background-color: #FBEAFF;
+  height: 100vh;
 }
 .App, .birthday-form {
   display: flex;
@@ -9,7 +15,13 @@
   align-items: center;
   gap: 1rem;
 }
-
-.App {
-  padding: 10rem;
+.birthday-form {
+  width: 70%;
+}
+.app-title {
+  text-align: center;
+}
+.form-submit {
+  background-color: #00C9A7;
+  height: 2rem;
 }
