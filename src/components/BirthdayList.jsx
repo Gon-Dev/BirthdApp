@@ -2,6 +2,7 @@ import Birthday from './Birthday.jsx';
 import React from 'react';
 import '../styles/Birthdaylist.css'
 const BirthdayList = ( {birthdayList,setBirthdayList} ) => {
+  console.log(birthdayList);
   const birthdayToShow = birthdayList.map ( birthday => {
     return (
       <Birthday 

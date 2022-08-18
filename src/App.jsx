@@ -3,7 +3,19 @@ import './styles/App.css'
 import BirthdayList from './components/BirthdayList.jsx'
 import Navbar from './components/Navbar.jsx'
 function App() {
-  const [birthdayList,setBirthdayList] = React.useState([]);
+  // const [birthdayList,setBirthdayList] = React.useState([]);
+   const [birthdayList,setBirthdayList] = React.useState(()=> {
+    const dataInStorage = localStorage.getItem("bdays");
+    if (dataInStorage) {
+      return JSON.parse(dataInStorage);
+    } else {
+      return [];
+    }
+  });
+  React.useEffect(()=>{
+    localStorage.setItem("bdays",JSON.stringify(birthdayList));
+  },[birthdayList])
+  
   const [birthdayFormData, setBirthdayFormData] = React.useState({nombre:"", fecha:""});
   function handleChange(event) {
     setBirthdayFormData( prevBirthdayFormData => {
