@@ -5,6 +5,7 @@ Heya! Another study case folks! My forst React repo actually. I'm pretty happy w
 # What I'm learning here
 
 - React fundamental concepts: elements, components, props and state.
+- React Hooks: useState, useEffect.
 - Development environments: Vite, create-react-app, differences, pros and cons.
 - Software registries: NPM, it's CLI, libraries installation.
 - Libraries usage: my first experience with libraries, using dates-fns to handle dates in Javascript.

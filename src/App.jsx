@@ -15,7 +15,8 @@ function App() {
   React.useEffect(()=>{
     localStorage.setItem("bdays",JSON.stringify(birthdayList));
   },[birthdayList])
-  
+  const nameInputEl = React.useRef(null);
+  const dateInputEl = React.useRef(null);
   const [birthdayFormData, setBirthdayFormData] = React.useState({nombre:"", fecha:""});
   function handleChange(event) {
     setBirthdayFormData( prevBirthdayFormData => {
@@ -27,7 +28,19 @@ function App() {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    birthdayFormData.nombre && birthdayFormData.fecha ? setBirthdayList([...birthdayList,birthdayFormData]) : console.log("ingresaste mal los datos maquina, revisa");
+    if (birthdayFormData.nombre && birthdayFormData.fecha) {
+      setBirthdayList([...birthdayList,birthdayFormData]);
+      nameInputEl.current.style.border ="#845EC2 1px solid";
+      dateInputEl.current.style.border ="#845EC2 1px solid";
+      nameInputEl.current.value = "asd";
+    } else if (!birthdayFormData.nombre && !birthdayFormData.fecha) {
+      nameInputEl.current.style.border ="red 3px solid";
+      dateInputEl.current.style.border ="red 3px solid";
+    } else if (!birthdayFormData.nombre){
+      nameInputEl.current.style.border ="red 3px solid";
+    } else {
+      dateInputEl.current.style.border ="red 3px solid";
+    }
   }
 
   return (
@@ -45,6 +58,7 @@ function App() {
             name="nombre"
             maxLength={20}
             value={birthdayFormData.nombre}
+            ref={nameInputEl}
           />
         </label>
         <label htmlFor="fecha">
@@ -54,6 +68,7 @@ function App() {
             name="fecha"
             onChange={handleChange}
             value={birthdayFormData.fecha}
+            ref={dateInputEl}
           />
         </label>
         <button 

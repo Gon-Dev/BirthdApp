@@ -48,17 +48,18 @@ input {
   background-color: #00C9A7;
   height: 2.5rem;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   color: #FBEAFF;
   margin-top: 1rem;
+  cursor: pointer;
+  outline: none;
+  
 }
 .form-submit:active {
-  background-color: #845EC2;
-  outline: none;
   transform: translate(2px,2px);
 }
 .form-submit:hover {
-  cursor: pointer;
+  background-color: #01856e;
 }
 @media (max-width: 425px) {
   .app-title{
